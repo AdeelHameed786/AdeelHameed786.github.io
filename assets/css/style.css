@@ -1,6 +1,9 @@
 :root {
     --main-font: 'Poppins', sans-serif;
 }
+html {
+    overflow-x: hidden;
+}
 body {
     background-color: #18191A;
     overflow-x: hidden;
