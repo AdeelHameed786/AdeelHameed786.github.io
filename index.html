@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="TweetWizard is your personal tweet curator, designed to help you take control of your Twitter experience. Save tweet text up to 280 characters, organize, and rediscover them effortlessly.">
+    <meta name="keywords" content="TweetWizard, tweet curator, tweet saver, tweet organizer, Twitter library, save tweets, organize tweets">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="TweetWizard">
+
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>TweetWizard - Your Twitter Library Simplified</title>
+</head>
+<body>
+    <div id="preloader">
+        <div class="circle"></div>
+        <span>Loading...</span>
+    </div>
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
+            <div class="container position-relative">
+                <a class="navbar-brand d-flex gap-2" href="#"><img src="assets/images/logo.svg" alt="logo" class="logo"> <span class="logo-text">TweetWizard</span></a>
+                <button class="navbar-toggler p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end rounded-lg-0 rounded-2" id="navbarSupportedContent">
+                    <a class="close-button d-lg-none d-block" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" href="javascript:void(0)">Close</a>
+                    <h4 class="text-uppercase d-lg-none d-block px-lg-0 px-4 my-3">Page</h4>
+                    <ul class="navbar-nav me-3 mb-2 mb-lg-0 gap-2 px-lg-0 px-4">
+                        <li class="nav-item">
+                            <a class="nav-link active d-flex align-items-center" aria-current="page" href="#">
+                                <svg class="svg-inline--fa fa-building icon d-lg-none d-block me-3" aria-hidden="true" focusable="false" data-prefix="far" data-icon="building" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M64 48c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16h80V400c0-26.5 21.5-48 48-48s48 21.5 48 48v64h80c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64zM0 64C0 28.7 28.7 0 64 0H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm88 40c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H104c-8.8 0-16-7.2-16-16V104zM232 88h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H232c-8.8 0-16-7.2-16-16V104c0-8.8 7.2-16 16-16zM88 232c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H104c-8.8 0-16-7.2-16-16V232zm144-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H232c-8.8 0-16-7.2-16-16V232c0-8.8 7.2-16 16-16z"></path></svg> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pricing-table-section">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Demos</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-lg-row flex-column gap-lg-3 register-and-login-buttons">
+                        <a href="#" class="btn btn-yellow d-flex align-items-center text-lg-center text-start">Register<svg class="svg-inline--fa fa-arrow-right-long d-lg-none d-block ms-3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right-long" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"></path></svg></a>
+                        <a href="#" class="btn btn-yellow d-flex justify-content-lg-center justify-content-start align-items-center "><svg class="svg-inline--fa fa-right-to-bracket d-none d-lg-inline me-md-0 me-lg-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="right-to-bracket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg>Login<svg class="svg-inline--fa fa-arrow-right-long d-lg-none d-block ms-3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right-long" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"></path></svg></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section position-relative">
+            <div class="shapes-container">
+                <div class="shape background-shape background-shape-main"></div>
+                <div class="shape background-shape background-shape-top bg-gradient"></div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 content-col"  data-aos="fade-right" data-aos-duration="1000">
+                        <h1 class="fw-bolder text-white mb-4">The Ultimate Twitter Curation Tool</h1>
+                        <p class="desc text-white">Discover the perfect companion for managing your Twitter content. Save tweet text (up to 280 characters), organize, and rediscover tweets effortlessly�your personalized tweet library awaits!</p>
+                        <ul class="list-unstyled">
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="arrow-icon-container bg-white text-primary p-2 rounded-circle d-flex align-items-center me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg> </div>
+                                    <p class="my-0 text-white ">Lost in the endless stream of tweets? We save the full tweet text for you!</p>
+                                </div>
+                            </li>
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="arrow-icon-container bg-white text-primary p-2 rounded-circle d-flex align-items-center me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg> </div>
+                                    <p class="my-0 text-white ">Want to keep track of important tweets without losing them in your timeline?</p>
+                                </div>
+                            </li>
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="arrow-icon-container bg-white text-primary p-2 rounded-circle d-flex align-items-center me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg> </div>
+                                    <p class="my-0 text-white ">Wish you could organize and categorize tweets for easy access later?</p>
+                                </div>
+                            </li>
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="arrow-icon-container bg-white text-primary p-2 rounded-circle d-flex align-items-center me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg> </div>
+                                    <p class="my-0 text-white ">Ready to turn your Twitter habit into a powerful knowledge and inspiration tool?</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mt-5 mb-4 align-items-center justify-content-center text-center">
+                            <a href="/demo" class="btn btn-green btn-large  shadow  px-4 text-capitalize">Check demos here</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 ms-lg-auto position-relative">
+                        <div data-aos="fade-left" data-aos-duration="1000">
+                            <div class="mobile-device iphone-x light">
+                                <div class="screen">
+                                    <img src="assets/images/screens/2.png" class="img-responsive" alt="screen">
+                                </div>
+                                <div class="notch"></div>
+                            </div>
+                            <div class="position-absolute w-100 top-75 start-50 translate-middle d-flex">
+                                <img src="assets/images/screens/2-highlight.png" alt="screen-highlight" class="mx-auto shadow-lg rounded img-responsive aos-init" data-aos-delay="1000" data-aos-duration="1000" data-aos="zoom-in">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="premium-features-section bg-black">
+            <div class="container">
+                <h1 class="section-heading fw-bolder text-center text-white">Premium Features</h1>
+                <p class="section-desc text-center ">TweetWizard is your personal tweet curator, designed to help you take control of your Twitter experience. No more scrolling through your feed to find that one insightful tweet. With TweetWizard, you can easily tag, categorize, and save tweets, building an organized library that s accessible anytime, anywhere.</p>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init aos-animate" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon"><svg class="svg-inline--fa fa-list" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"></path></svg></span>
+
+                                    <h5 class="fw-bold mb-3 text-white">Flexible Categorization </h5>
+                                    <p class="muted-text mb-0">Organize your tweets with custom categories, creating a personalized classification system.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <circle cx="12" cy="12" r="5"></circle>
+                                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                        </svg>
+                                    </span>
+
+                                    <h5 class="text-white fw-bold mb-3"> Multi-Tagging System</h5>
+                                    <p class="muted-text mb-0">Attach up to 5 tags per tweet for precise and multifaceted content labeling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init aos-animate" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3"> Integrated Insights Capture</h5>
+                                    <p class="muted-text  mb-0">Add personal notes or insights to tweets, making your saved content more meaningful.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512 " width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M0 128C0 92.7 28.7 64 64 64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2l0 256c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1l0-17.1 0-128 0-17.1 14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Thematic Tweet Grouping</h5>
+                                    <p class="muted-text  mb-0">Group related tweets into "Tweet Lists," enhancing your content organization.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32l0 96L0 384c0 35.3 28.7 64 64 64l192 0 0-64L64 384l0-224 192 0 0-64L64 96l0-64zM288 192c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32l-98.7 0c-8.5 0-16.6-3.4-22.6-9.4L409.4 9.4c-6-6-14.1-9.4-22.6-9.4L320 0c-17.7 0-32 14.3-32 32l0 160zm0 288c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32l-98.7 0c-8.5 0-16.6-3.4-22.6-9.4l-13.3-13.3c-6-6-14.1-9.4-22.6-9.4L320 288c-17.7 0-32 14.3-32 32l0 160z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Hierarchical Tweet Organization</h5>
+                                    <p class="muted-text  mb-0">Organize tweet lists into "Collections" for a high-level content structure.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera mb-3 stroke-primary">
+                                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                            </path>
+                                            <circle cx="12" cy="13" r="4"></circle>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Future Reading Queue</h5>
+                                    <p class="muted-text  mb-0">Mark tweets as "Read Later" to revisit at a more convenient time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M315 315l158.4-215L444.1 70.6 229 229 315 315zm-187 5s0 0 0 0l0-71.7c0-15.3 7.2-29.6 19.5-38.6L420.6 8.4C428 2.9 437 0 446.2 0c11.4 0 22.4 4.5 30.5 12.6l54.8 54.8c8.1 8.1 12.6 19 12.6 30.5c0 9.2-2.9 18.2-8.4 25.6L334.4 396.5c-9 12.3-23.4 19.5-38.6 19.5L224 416l-25.4 25.4c-12.5 12.5-32.8 12.5-45.3 0l-50.7-50.7c-12.5-12.5-12.5-32.8 0-45.3L128 320zM7 466.3l63-63 70.6 70.6-31 31c-4.5 4.5-10.6 7-17 7L24 512c-13.3 0-24-10.7-24-24l0-4.7c0-6.4 2.5-12.5 7-17z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Priority Highlighting</h5>
+                                    <p class="muted-text  mb-0">Pin important tweets to the top of your lists for quick access.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24L0 64 0 350.5 0 400l0 88c0 13.3 10.7 24 24 24s24-10.7 24-24l0-100 80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30l0-279.7c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52l0-28zm0 77.5l96.6-24.2c27-6.7 55.5-3.6 80.4 8.8c54.9 27.4 118.7 29.7 175 6.8l0 241.8-24.4 9.1c-33.7 12.6-71.2 10.7-103.4-5.4c-48.2-24.1-103.3-30.1-155.6-17.1L48 338.5l0-237z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Immediate Action Flag</h5>
+                                    <p class="muted-text mb-0">Use the "Read Now" feature for tweets that need immediate attention.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M481 31C445.1-4.8 386.9-4.8 351 31l-15 15L322.9 33C294.8 4.9 249.2 4.9 221.1 33L135 119c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0L255 66.9c9.4-9.4 24.6-9.4 33.9 0L302.1 80 186.3 195.7 316.3 325.7 481 161c35.9-35.9 35.9-94.1 0-129.9zM293.7 348.3L163.7 218.3 99.5 282.5c-48 48-80.8 109.2-94.1 175.8l-5 25c-1.6 7.9 .9 16 6.6 21.7s13.8 8.1 21.7 6.6l25-5c66.6-13.3 127.8-46.1 175.8-94.1l64.2-64.2z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Significance Marker</h5>
+                                    <p class="muted-text  mb-0">Highlight tweets as "Important" to emphasize their relevance in your collection.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Time-Sensitive Indicator</h5>
+                                    <p class="muted-text  mb-0">Mark tweets as "Urgent" to ensure timely reading.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feaure-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M448 160l-128 0 0-32 128 0 0 32zM48 64C21.5 64 0 85.5 0 112l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 64zM448 352l0 32-256 0 0-32 256 0zM48 288c-26.5 0-48 21.5-48 48l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 288z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Engagement Tracking</h5>
+                                    <p class="muted-text  mb-0">Track read/unread status and interactions like replies and retweets.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-3">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M307 34.8c-11.5 5.1-19 16.6-19 29.2l0 64-112 0C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96l96 0 0 64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Individual Tweet Sharing</h5>
+                                    <p class="muted-text  mb-0">Share specific tweets with others, along with your notes or thoughts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7l0 72 0 264c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6L448 147 192 223.8 192 432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6L128 200l0-72c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Curated List Sharing</h5>
+                                    <p class="muted-text  mb-0">Share entire tweet lists to foster collaborative discussions.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192 32 192c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512L430 512c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32l-85.6 0L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192l-232.6 0L253.3 35.1zM192 304l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16zm128 16l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16s16 7.2 16 16z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Comprehensive Collection Sharing</h5>
+                                    <p class="muted-text mb-0">Share extensive tweet collections for broader themes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8l0 378.1C394 378 431.1 230.1 432 141.4L256 66.8s0 0 0 0z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Granular Privacy Control</h5>
+                                    <p class="muted-text mb-0">Manage tweet visibility, sharing privately or publicly as you choose.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M320 464c8.8 0 16-7.2 16-16l0-288-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16l256 0zM0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 448c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 64z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Public Expertise Showcase</h5>
+                                    <p class="muted-text mb-0">Create public pages to demonstrate your curated content and expertise.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512 " width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M0 128C0 92.7 28.7 64 64 64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2l0 256c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1l0-17.1 0-128 0-17.1 14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Tweet Favoriting</h5>
+                                    <p class="muted-text mb-0">Save individual tweets as favorites for easy access.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7l0 72 0 264c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6L448 147 192 223.8 192 432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6L128 200l0-72c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Tweet List Favoriting</h5>
+                                    <p class="muted-text  mb-0">Highlight key tweet lists by marking them as favorites.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 text-center mt-1">
+                    <div class="col-lg-8 col-md-8 image-col">
+                        <div class="feature_img aos-init" data-aos="fade-right">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 content-col">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32l0 96L0 384c0 35.3 28.7 64 64 64l192 0 0-64L64 384l0-224 192 0 0-64L64 96l0-64zM288 192c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32l-98.7 0c-8.5 0-16.6-3.4-22.6-9.4L409.4 9.4c-6-6-14.1-9.4-22.6-9.4L320 0c-17.7 0-32 14.3-32 32l0 160zm0 288c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32l-98.7 0c-8.5 0-16.6-3.4-22.6-9.4l-13.3-13.3c-6-6-14.1-9.4-22.6-9.4L320 288c-17.7 0-32 14.3-32 32l0 160z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Collection Favoriting</h5>
+                                    <p class="muted-text  mb-0">Favorite entire collections for top-level organization.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="card card-dark h-100 shadow-box hover-shadow hover-lift">
+                            <div class="card-body d-flex justify-content-center align-items-center p-lg-5 p-4">
+                                <div class="card_wrapper">
+                                    <span class="feature-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                            <path d="M3.9 54.9C10.5 40.9 24.5 32 40 32l432 0c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9 320 448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6l0-79.1L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"></path>
+                                        </svg>
+                                    </span>
+                                    <h5 class="text-white fw-bold mb-3">Advanced Content Filtering</h5>
+                                    <p class="muted-text mb-0">Use filtering options to narrow down tweets by tags, categories, dates, or engagement metrics.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <div class="feature_img aos-init" data-aos="fade-left">
+                            <a href="#"><img src="https://tweetwizard.com/landing/img/demoimg.png" alt="demo" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="why-tweetwizard-section py-5" >
+            <div class="container" data-aos="fade-right">
+                <h2 class="text-center fw-bolder mb-4 text-white">Why TweetWizard?</h2>
+                <p class="text-center">In today's information-rich world, we consume more tweets than ever before, but Twitter's organization options are limited. TweetSaver is for those who want to harness the power of Twitter for learning, inspiration, or professional growth. Turn your Twitter feed into a structured, productive experience.</p>
+            </div>
+        </section>
+        <section class="get-organized-today-section bg-black py-5" >
+            <div class="container" data-aos="fade-left">
+                <h2 class="text-white text-center fw-bolder mb-4">Get Organized Today</h2>
+                <p class="section-desc text-gradient text-gradient-primary mb-3 fw-bold text-center">Take control of your Twitter experience and start organizing like a pro. Sign up for free and unlock the potential of your tweet library!</p>
+                <div class="text-center">
+                    <a href="#" class="btn btn-purple shadow-primary mt-3 mt-md-0 ms-md-auto">Create account </a>
+                </div>
+            </div>
+        </section>
+        <section class="benefits-section">
+            <div class="container">
+                <div class="row align-items-center pt-md-0 pt-5">
+                    <div class="col-md-6 col-lg-5 me-lg-auto position-relative">
+                        <div class="position-absolute top-50 start-50 translate-middle opacity-25 z-index--1">
+                            <div class="shape shape-background rounded-circle shadow-lg bg-turquoise aos-init" data-aos="zoom-in"></div>
+                        </div>
+                        <div class="device-twin d-flex align-items-center mx-auto position-relative w-100">
+                            <div class="mockup absolute aos-init" data-aos="fade-left">
+                                <div class="screen">
+                                    <img src="assets/images/screens/1.png" class="img-responsive w-100" alt="...">
+                                </div>
+                                <span class="button"></span>
+                            </div>
+                            <div class="iphone-x front me-0">
+                                <div class="screen shadow-box">
+                                    <img src="assets/images/screens/2.png" alt="...">
+                                </div>
+                                <div class="notch"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center text-md-start mt-md-0 mt-5 pt-md-0 pt-5" data-aos="fade-left">     
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#506690" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle stroke-"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <h2 class="text-white section-heading fw-bold mb-60px"> Tons of benefits </h2>
+                
+                        <div class="row g-4 text-center">
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start ">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32l0 96L0 384c0 35.3 28.7 64 64 64l192 0 0-64L64 384l0-224 192 0 0-64L64 96l0-64zM288 192c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32l-98.7 0c-8.5 0-16.6-3.4-22.6-9.4L409.4 9.4c-6-6-14.1-9.4-22.6-9.4L320 0c-17.7 0-32 14.3-32 32l0 160zm0 288c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32l-98.7 0c-8.5 0-16.6-3.4-22.6-9.4l-13.3-13.3c-6-6-14.1-9.4-22.6-9.4L320 288c-17.7 0-32 14.3-32 32l0 160z">
+                                                </path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Enhanced Productivity</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block "> Streamline your Twitter workflow with powerful organization tools.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M160 64c0-35.3 28.7-64 64-64L576 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64l-239.2 0c-11.8-25.5-29.9-47.5-52.4-64l99.6 0 0-32c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 32 64 0 0-288L224 64l0 49.1C205.2 102.2 183.3 96 160 96l0-32zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352l53.3 0C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7L26.7 512C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"></path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Improved Learning</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block ">Capture insights for better retention and understanding.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M400 255.4l0-15.4 0-32c0-8.8-7.2-16-16-16l-32 0-16 0-46.5 0c-50.9 0-93.9 33.5-108.3 79.6c-3.3-9.4-5.2-19.8-5.2-31.6c0-61.9 50.1-112 112-112l48 0 16 0 32 0c8.8 0 16-7.2 16-16l0-32 0-15.4L506 160 400 255.4zM336 240l16 0 0 48c0 17.7 14.3 32 32 32l3.7 0c7.9 0 15.5-2.9 21.4-8.2l139-125.1c7.6-6.8 11.9-16.5 11.9-26.7s-4.3-19.9-11.9-26.7L409.9 8.9C403.5 3.2 395.3 0 386.7 0C367.5 0 352 15.5 352 34.7L352 80l-16 0-32 0-16 0c-88.4 0-160 71.6-160 160c0 60.4 34.6 99.1 63.9 120.9c5.9 4.4 11.5 8.1 16.7 11.2c4.4 2.7 8.5 4.9 11.9 6.6c3.4 1.7 6.2 3 8.2 3.9c2.2 1 4.6 1.4 7.1 1.4l2.5 0c9.8 0 17.8-8 17.8-17.8c0-7.8-5.3-14.7-11.6-19.5c0 0 0 0 0 0c-.4-.3-.7-.5-1.1-.8c-1.7-1.1-3.4-2.5-5-4.1c-.8-.8-1.7-1.6-2.5-2.6s-1.6-1.9-2.4-2.9c-1.8-2.5-3.5-5.3-5-8.5c-2.6-6-4.3-13.3-4.3-22.4c0-36.1 29.3-65.5 65.5-65.5l14.5 0 32 0zM72 32C32.2 32 0 64.2 0 104L0 440c0 39.8 32.2 72 72 72l336 0c39.8 0 72-32.2 72-72l0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 64c0 13.3-10.7 24-24 24L72 464c-13.3 0-24-10.7-24-24l0-336c0-13.3 10.7-24 24-24l64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L72 32z"></path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Effortless Collaboration</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block ">Share curated content with colleagues or friends.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32l224 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-224 0c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32l224 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-224 0c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32l288 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-288 0c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Personalized Content Management</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block ">Customize your tweet organization with tags and categories.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M520.4 196.1c0-7.9-5.5-12.1-15.6-12.1h-4.9v24.9h4.7c10.3 0 15.8-4.4 15.8-12.8zM528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-44.1 138.9c22.6 0 52.9-4.1 52.9 24.4 0 12.6-6.6 20.7-18.7 23.2l25.8 34.4h-19.6l-22.2-32.8h-2.2v32.8h-16zm-55.9 .1h45.3v14H444v18.2h28.3V217H444v22.2h29.3V253H428zm-68.7 0l21.9 55.2 22.2-55.2h17.5l-35.5 84.2h-8.6l-35-84.2zm-55.9-3c24.7 0 44.6 20 44.6 44.6 0 24.7-20 44.6-44.6 44.6-24.7 0-44.6-20-44.6-44.6 0-24.7 20-44.6 44.6-44.6zm-49.3 6.1v19c-20.1-20.1-46.8-4.7-46.8 19 0 25 27.5 38.5 46.8 19.2v19c-29.7 14.3-63.3-5.7-63.3-38.2 0-31.2 33.1-53 63.3-38zm-97.2 66.3c11.4 0 22.4-15.3-3.3-24.4-15-5.5-20.2-11.4-20.2-22.7 0-23.2 30.6-31.4 49.7-14.3l-8.4 10.8c-10.4-11.6-24.9-6.2-24.9 2.5 0 4.4 2.7 6.9 12.3 10.3 18.2 6.6 23.6 12.5 23.6 25.6 0 29.5-38.8 37.4-56.6 11.3l10.3-9.9c3.7 7.1 9.9 10.8 17.5 10.8zM55.4 253H32v-82h23.4c26.1 0 44.1 17 44.1 41.1 0 18.5-13.2 40.9-44.1 40.9zm67.5 0h-16v-82h16zM544 433c0 8.2-6.8 15-15 15H128c189.6-35.6 382.7-139.2 416-160zM74.1 191.6c-5.2-4.9-11.6-6.6-21.9-6.6H48v54.2h4.2c10.3 0 17-2 21.9-6.4 5.7-5.2 8.9-12.8 8.9-20.7s-3.2-15.5-8.9-20.5z"></path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Efficient Content Discovery</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block ">Find the right tweet with advanced filtering and sorting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M41 7C31.6-2.3 16.4-2.3 7 7S-2.3 31.6 7 41l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L41 7zM599 7L527 79c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l72-72c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0zM7 505c9.4 9.4 24.6 9.4 33.9 0l72-72c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L7 471c-9.4 9.4-9.4 24.6 0 33.9zm592 0c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-72-72c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72zM320 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zM212.1 336c-2.7 7.5-4.1 15.6-4.1 24c0 13.3 10.7 24 24 24l176 0c13.3 0 24-10.7 24-24c0-8.4-1.4-16.5-4.1-24c-.5-1.4-1-2.7-1.6-4c-9.4-22.3-29.8-38.9-54.3-43c-3.9-.7-7.9-1-12-1l-80 0c-4.1 0-8.1 .3-12 1c-.8 .1-1.7 .3-2.5 .5c-24.9 5.1-45.1 23-53.4 46.5zM175.8 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-26.5 32C119.9 256 96 279.9 96 309.3c0 14.7 11.9 26.7 26.7 26.7l56.1 0c8-34.1 32.8-61.7 65.2-73.6c-7.5-4.1-16.2-6.4-25.3-6.4l-69.3 0zm368 80c14.7 0 26.7-11.9 26.7-26.7c0-29.5-23.9-53.3-53.3-53.3l-69.3 0c-9.2 0-17.8 2.3-25.3 6.4c32.4 11.9 57.2 39.5 65.2 73.6l56.1 0zM464 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"></path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Focused Reading Experience</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block ">Prioritize content with "Read Later" and "Urgent" features.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benefits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z">
+                                                </path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Comprehensive Knowledge Structuring</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block "> Organize tweets into lists and collections.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M307 34.8c-11.5 5.1-19 16.6-19 29.2l0 64-112 0C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96l96 0 0 64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z">
+                                                </path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Customized Sharing Options</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block "> Control what you share with private and public settings.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M0 32v128h128V32H0zm120 120H8V40h112v112zm40-120v128h128V32H160zm120 120H168V40h112v112zm40-120v128h128V32H320zm120 120H328V40h112v112zM0 192v128h128V192H0zm120 120H8V200h112v112zm40-120v128h128V192H160zm120 120H168V200h112v112zm40-120v128h128V192H320zm120 120H328V200h112v112zM0 352v128h128V352H0zm120 120H8V360h112v112zm40-120v128h128V352H160zm120 120H168V360h112v112zm40-120v128h128V352H320z"></path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Expertise Showcase</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block "> Display curated content through public pages.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="36" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M160 64c0-35.3 28.7-64 64-64L576 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64l-239.2 0c-11.8-25.5-29.9-47.5-52.4-64l99.6 0 0-32c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 32 64 0 0-288L224 64l0 49.1C205.2 102.2 183.3 96 160 96l0-32zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352l53.3 0C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7L26.7 512C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z">
+                                                </path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Adaptive Learning Path</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block "> Evolve your learning journey with organized tweets.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 single-benefilt-col">
+                                <div class="d-flex flex-column flex-lg-row align-items-center align-items-md-start">
+                                    <div class="mt-3 mt-lg-0">
+                                        <span class="benfits-icons">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="36" fill="#5533ff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun mb-3 stroke-primary">
+                                                <path d="M160 96a96 96 0 1 1 192 0A96 96 0 1 1 160 96zm80 152l0 264-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427L0 224c0-17.7 14.3-32 32-32l30.3 0c63.6 0 125.6 19.6 177.7 56zm32 264l0-264c52.1-36.4 114.1-56 177.7-56l30.3 0c17.7 0 32 14.3 32 32l0 203c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z"></path>
+                                            </svg>
+                                        </span>
+                                        <h5 class="text-white fw-bold mt-0 mb-1">Enhanced Content Recall</h5>
+                                        <p class="text-secondary-color m-0 d-md-none d-lg-block "> Quickly revisit key insights with favorites and notes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="your-videos-your-rules-section bg-black py-5">
+            <div class="container" data-aos="fade-left">
+                <h2 class="text-white text-center fw-bolder mb-4">Your Videos, Your Rules</h2>
+                <p class="section-desc mb-3 fw-bold text-center">Take control of your Twitter experience and start organizing like a pro. Sign up for free and unlock the potential of your tweet library!</p>
+                <div class="text-center">
+                    <a href="#" class="btn btn-purple shadow-primary mt-3 mt-md-0 ms-md-auto">Create account </a>
+                </div>
+            </div>
+        </section>
+        <section class="how-does-it-work-section position-relative">
+            <div class="shape shape-ring aos-init aos-animate" data-aos="fade-right">
+                <div></div>
+            </div>
+            <div class="container" data-aos="zoom-in">
+                <h2 class="section-heading fw-bolder text-center text-green">How it Works?</h2>
+                <p class="section-desc text-center ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, nulla, voluptates. Architecto eum minima necessitatibus quo reiciendis!</p>
+                <div class="row gap-y text-center text-md-start">
+                    <div class="col-md-4 py-4 text-center position-relative single-step" data-aos="fade-right">
+                        <div class="shapes-figure shapes-container">
+                            <div class="shape shape-circle top-0 start-50 translate-middle-x"></div>
+                        </div>
+                        <figure class="mockup mb-4">
+                            <img src="assets/images/how-does-it-work-steps/plan.svg" class="mb-3 img" alt="plan">
+                        </figure>
+                        <h5 class="text-white fw-bold">Save and Organize Instantly</h5>
+                        <p class="mb-0">Easily tag and categorize tweets to build your library in seconds. Keep your collection accessible with intuitive search functionality.</p>
+                    </div>
+                    <div class="col-md-4 py-4 text-center position-relative single-step" data-aos="zoom-in">
+                        <div class="shapes-figure shapes-container">
+                            <div class="shape shape-circle top-0 start-50 translate-middle-x"></div>
+                        </div>
+                        <figure class="mockup mb-4">
+                            <img src="assets/images/how-does-it-work-steps/payment.svg" class="mb-3 img" alt="payment">
+                        </figure>
+                        <h5 class="text-white fw-bold">Rediscover with Ease</h5>
+                        <p class="mb-0">No more hunting through your timeline. Advanced search and filtering help you find tweets in no time.</p>
+                    </div>
+                    <div class="col-md-4 py-4 text-center position-relative single-step" data-aos="fade-left">
+                        <div class="shapes-figure shapes-container">
+                            <div class="shape shape-circle top-0 start-50 translate-middle-x"></div>
+                        </div>
+                        <figure class="mockup mb-4">
+                            <img src="assets/images/how-does-it-work-steps/work.svg" class="mb-3 img" alt="work">
+                        </figure>
+                        <h5 class="text-white fw-bold">Share Like a Pro</h5>
+                        <p class="mb-0">Create custom lists and collections, and share them effortlessly with friends or colleagues.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="no-more-lost-tweets-section bg-black py-5">
+            <div class="container" data-aos="fade-left">
+                <h2 class="text-white text-center fw-bolder mb-4">No More Lost Tweets</h2>
+                <p class="section-desc mb-3 fw-bold text-center">Save, categorize, and rediscover important content with ease. Join TweetSaver for free and start building your tweet library today.</p>
+                <div class="text-center mb-4">
+                    <a href="#" class="btn btn-purple shadow-primary mt-3 mt-md-0 ms-md-auto">Create account </a>
+                </div>
+            </div>
+        </section>
+        <section class="pricing-table-section" id="pricing-table-section">
+            <div class="container" data-aos="zoom-in">
+                <div class="card card-dark shadow-lg rounded-8px">
+                    <div class="card-body pricing-element">
+                        <h2 class="text-white section-heading fw-bold py-4 text-center">Pricing </h2>
+                        <div class="">
+                            <div class="d-md-none">
+                                <div class="btn-group btn-group-toggle pricing-table-tabs w-100 mb-3" data-toggle="buttons">
+                                    <input type="radio" class="btn-check" name="pricing-plan" id="rg-1" value="1">
+                                    <label class="btn btn-primary" for="rg-1">Free plan</label>
+                                    <input type="radio" class="btn-check" name="pricing-plan" id="rg-2" value="2" checked="">
+                                    <label class="btn btn-primary" for="rg-2">Premium Plan</label>
+
+                                </div>
+                            </div>
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table table-dark pricing-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="row" style="text-align:left">Pricing</th>
+                                                <th>Free plan</th>
+                                                <th>Premium Plan</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>Price</th>
+                                                <td>Free</td>
+                                                <td>$99/year</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tweet Saving</th>
+                                                <td>100</td>
+                                                <td>Unlimited</td>
+                                            </tr>
+                                            <tr>
+                                                <th>All Features Included</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Flexible Categorization</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Multi-Tagging System</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Integrated Knowledge Capture</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thematic Video Grouping</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Hierarchical Tweet Organization</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Future Reading Queue</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Priority Highlighting</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Immediate Action Flag</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Significance Marker</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Time-Sensitive Indicator</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Engagement Tracking</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Individual Content Sharing</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Curated List Sharing</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Comprehensive Collection Sharing</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Granular Privacy Control</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Public Expertise Showcase</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tweet Favoriting</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tweetlist Favoriting</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Collection Favoriting</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Advanced Tweet Filtering</th>
+                                                <td>Yes</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start">Prices.</td>
+                                                <td headers="ph-1 "> <span class="border-2px border-purple rounded free-btn">Free</span> </td>
+                                                <td headers="ph-2 " class="visible-cell"> <a href="#" class="btn btn-purple">Subscribe</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </section>
+        <section class="start-your-free-journey-section bg-black py-5">
+            <div class="container" data-aos="fade-left">
+                <div class="row">
+                    <h2 class="text-white mt-0 mb-3 fw-bold text-center">Start Your Free Journey</h2>
+                    <div class="text-center text-md-start">
+                        <p class=" mb-3 lead fw-bold text-center">Ready to experience a smarter way to manage your Twitter content? Sign up for a free account and take the first step toward effortless organization.</p>
+                        <p class="text-center"><a href="#" class="btn btn-purple shadow-primary mt-3 mt-md-0 ms-md-auto"> Create account </a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="faq-section card-dark">
+            <div class="container">
+                <h2 class="text-white section-heading fw-bolder text-center mb-5">Frequently Asked Questions</h2>
+                <div class="row g-4">
+                    <div class="col-md-4" data-aos="fade-right">
+                        <h2 class="text-white">Do you have <span class="fw-bold">questions?</span>
+                        </h2>
+                        <p class="lead">If you've any question about TweetWizard you can ask here!</p>
+                    </div>
+                    <div class="col-md-8" data-aos="fade-left">
+                        <div class="accordion" id="accordion-faqs">
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light">
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq1"> What is TweetWizard? </a>
+                                </div>
+                                <div id="fq1" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">TweetWizard is a tool for organizing, categorizing, and sharing tweets, transforming Twitter into a structured learning and inspiration source</p></div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light"> 
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq2"> Is TweetWizard free to use? </a>
+                                </div>
+                                <div id="fq2" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">Yes! We offer a free plan with all essential features.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light"> 
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq3">How do I save tweets with TweetWizard? </a>
+                                </div>
+                                <div id="fq3" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">Simply add a tweet to your library and tag or categorize it for easy retrieval.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light">
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq4">Can I access saved tweets from any device?</a>
+                                </div>
+                                <div id="fq4" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">Absolutely! TweetWizard is cloud-based, meaning you can access your saved Tweets, playlists, and collections from any device with an internet connection. Whether you're on your phone, tablet, or desktop, your personalized library is just a click away. </p></div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light">
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq5">How does TweetWizard help with organizing my Tweets?</a>
+                                </div>
+                                <div id="fq5" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">TweetWizard offers custom tags, categories, and smart tweetlists, allowing you to organize your content in a way that makes sense to you. You can create tweetlists for learning, entertainment, or work and use our intuitive search feature to quickly find any tweet, no matter when you saved it.</p></div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light">
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq6">Can I share my Tweets, and tweetlists with others?</a>
+                                </div>
+                                <div id="fq6" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">Yes! TweetWizard makes sharing your curated tweetlists or individual tweets easy. You can share your organized content with friends, colleagues, or social media followers directly from the platform.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light">
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq7">Does TweetWizard store the tweets themselves?</a>
+                                </div>
+                                <div id="fq7" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">Yes, TweetWizard does store the actual short tweets. We provide an organized, easy-to-access link to your saved content, helping you manage it efficiently without storing the tweet files on our platform.</p></div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light">
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq9">How secure is my data with TweetWizard?</a>
+                                </div>
+                                <div id="fq9" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body"><p class="mb-0">We take your privacy and security seriously. Your saved tweets, tags, and tweetlists are stored securely, and your personal information is protected. We use encryption and follow industry best practices to ensure your data remains safe.</p></div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-black-light-1px">
+                                <div class="accordion-header bg-black-light">
+                                    <a href="#" class="accordion-button collapsed bg-black-light" data-bs-toggle="collapse" data-bs-target="#fq10">Can I upgrade my account for more features?</a>
+                                </div>
+                                <div id="fq10" class="accordion-collapse collapse bg-black-light" data-bs-parent="#accordion-faqs">
+                                    <div class="accordion-body bg-black-light"><p class="mb-0">While our free account offers all the core features you need to organize your tweets, we also have a premium plan. You can upgrade here.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ready-to-transform-section bg-black py-5">
+            <div class="container" data-aos="fade-left">
+                <div class="row">
+                    <h2 class="text-white mt-0 mb-3 fw-bold text-center">Ready to Transform Your Twitter Experience?</h2>
+                    <div class="text-center text-md-start">
+                        <p class=" mb-3 lead fw-bold text-center">Sign up today and start building the Twitter library you deserve. Whether you're a casual Tweeter or a power user, TweetWizard will help you get the most out of your favorite platform.</p>
+                        <p class="text-center"><a href="#" class="btn btn-purple shadow-primary mt-3 mt-md-0 ms-md-auto"> Sign Up for Free </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer py-5">
+            <div class="container">
+                <div class="footer-top pb-5">
+                    <div class="row d-flex justify-content-md-center align-items-md-center">
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <div class="bottom-logo text-md-center text-left mt-md-0 mt-sm-5 mb-md-0 mt-3 mb-3">
+                                <a href="#" class="text-decoration-none fw-bold">TweetWizard</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 d-md-block d-flex justify-content-md-center">
+                            <ul class="footer_nav list-unstyled d-flex flex-md-row flex-column flex-wrap gap-md-4 gap-2 mb-0">
+                                <li><a href="#" class="text-decoration-none">Home</a></li>
+                                <li><a href="#" class="text-decoration-none">Contact Us </a></li>
+                                <li><a href="#" class="text-decoration-none">Blog </a></li>
+                                <li><a href="#" class="text-decoration-none">Privacy </a></li>
+                                <li><a href="#" class="text-decoration-none">Terms</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-5 col-md-4 mt-md-0 mt-4">
+                            <ul class="footer_social d-flex flex-wrap justify-content-md-center gap-md-4 gap-3 list-unstyled mb-0">
+                                <li>
+                                    <a href="#" class="social-link btn-facebook me-md-3 me-1"> <svg class="svg-inline--fa fa-facebook" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                            <path fill="currentColor" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z">
+                                            </path>
+                                        </svg> </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="social-link btn-twitter text-white  me-md-3 me-1"> <svg class="svg-inline--fa fa-twitter" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                            <path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                                            </path>
+                                        </svg> </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="social-link btn-whatsapp me-md-3 me-1"> <svg class="svg-inline--fa fa-whatsapp" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                            <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
+                                            </path>
+                                        </svg> 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="social-link btn-instagram text-white  me-md-3 me-1"> <svg class="svg-inline--fa fa-instagram" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                            <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom mt-4">
+                    <p class="no-spacing"> © 2024 TweetWizard. All Rights Reserved. </p>
+                </div>
+            </div>
+        </footer>
+        <button class="btn btn-yellow rounded-circle p-3 d-flex align-items-center justify-content-center scroll-to-top ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
