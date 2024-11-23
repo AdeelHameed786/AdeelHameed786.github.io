@@ -330,6 +330,7 @@ header .navbar-collapse .close-button::after {
     background-repeat: no-repeat;
     background-position: 145% 150px;
     padding-bottom: 500px;
+    scroll-margin-top: 70px; 
 }
 .pricing-table-section .free-plan-card {
     background: linear-gradient(to right, #060606, #101014);
@@ -538,6 +539,7 @@ footer .links .link {
       height: 40px;  
     } 
     .hero-section {
+        padding-top: 120px;
         margin-bottom: 0;
     }
     .hero-section .shapes-container .background-shape-main {
